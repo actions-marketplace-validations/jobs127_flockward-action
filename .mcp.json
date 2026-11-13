@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "flockward": {
+      "type": "http",
+      "url": "https://flockward.com/mcp"
+    }
+  }
+}

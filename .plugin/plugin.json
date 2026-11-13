@@ -1,0 +1,10 @@
+{
+  "name": "flockward",
+  "version": "1.0.0",
+  "description": "Check links before your agent opens them: pages that attack AI agents (hidden prompt injection, data theft, steering), plus public phishing and malware lists. Free, no sign-up.",
+  "author": { "name": "Flockward", "email": "hello@flockward.com", "url": "https://flockward.com" },
+  "homepage": "https://flockward.com",
+  "repository": "https://github.com/jobs127/flockward-action",
+  "license": "MIT",
+  "keywords": ["security", "prompt-injection", "link-checking", "mcp"]
+}

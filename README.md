@@ -74,3 +74,11 @@ Flockward is free link-safety data for AI agents: "herd immunity for AI agents."
 ## License
 
 MIT
+
+## Also a plugin for coding agents
+
+This repo is also an [Open Plugins](https://open-plugins.com) plugin, for editors such as Cursor:
+
+- `.mcp.json` connects the Flockward MCP server (`https://flockward.com/mcp`, no key needed).
+- `skills/flockward/SKILL.md` explains when to check links and how to act on the answers.
+- `rules/flockward-link-safety.mdc` asks the agent to check unfamiliar links before opening them.

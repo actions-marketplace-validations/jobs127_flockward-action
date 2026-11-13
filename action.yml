@@ -1,0 +1,36 @@
+name: "Flockward Link Safety Check"
+description: "Check links in your docs and pull requests for pages that attack AI agents (prompt injection), phishing and malware. Free."
+author: "Flockward"
+branding:
+  icon: "shield"
+  color: "green"
+inputs:
+  paths:
+    description: "Files to scan (git pathspecs, space-separated, e.g. 'docs/ *.md'). Default: a pull request's changed files, otherwise every tracked Markdown, HTML, text, YAML and JSON file."
+    required: false
+    default: ""
+  fail-on:
+    description: "Fail the job on: block (default), warn (block or warn), or never."
+    required: false
+    default: "block"
+  api-key:
+    description: "Optional free Flockward key (POST https://flockward.com/v1/keys). Raises the daily limit. Store it as a repository secret."
+    required: false
+    default: ""
+outputs:
+  checked:
+    description: "Number of links checked"
+  flagged:
+    description: "Number of links with verdict block or warn"
+  blocked:
+    description: "Number of links with verdict block"
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      env:
+        FW_PATHS: ${{ inputs.paths }}
+        FW_FAIL_ON: ${{ inputs.fail-on }}
+        FLOCKWARD_API_KEY: ${{ inputs.api-key }}
+        FW_BASE: ${{ github.event.pull_request.base.sha }}
+      run: node "$GITHUB_ACTION_PATH/check-links.mjs"
